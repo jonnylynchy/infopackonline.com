@@ -1,5 +1,5 @@
 InfopackonlineCom::Application.routes.draw do
   root to: 'main#signin'
-  get "main/signin"
-  get "main/video"
+  match "/signin", to: 'main#signin'
+  match "/video", to: 'main#video'
 end

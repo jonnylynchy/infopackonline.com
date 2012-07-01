@@ -3,12 +3,20 @@
     <p></p>
     <label>Please sign in with your email</label>
     <div class="row collapse">
+      <% if !flash[:notice].nil? %>
+        <div class="alert-box alert">
+          <%= flash[:notice] %>
+          <a href="" class="close">&times;</a>
+        </div>
+      <% end %>
+      <%= form_tag("/login", :method => "post") do %>
       <div class="eight mobile-three columns">
-        <input type="text" />
+        <%= text_field_tag(:email) %>
       </div>
       <div class="four mobile-one columns">
-        <a href="#" class="[radius, round] postfix button">Sign In</a>
+        <%= submit_tag("Sign In", {:class => "postfix button"}) %>
       </div>
+      <% end %>
     </div>
     <p></p>
   </div>

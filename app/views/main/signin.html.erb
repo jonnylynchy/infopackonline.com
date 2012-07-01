@@ -9,12 +9,12 @@
           <a href="" class="close">&times;</a>
         </div>
       <% end %>
-      <%= form_tag("/login", :method => "post") do %>
+      <%= form_tag("/login", {:method => "post", :class => "loginForm"}) do %>
       <div class="eight mobile-three columns">
         <%= text_field_tag(:email) %>
       </div>
       <div class="four mobile-one columns">
-        <%= submit_tag("Sign In", {:class => "postfix button"}) %>
+        <%= link_to 'Sign In', "#", {:class => "postfix button", :onclick=>"$('.loginForm').submit()"}  %>
       </div>
       <% end %>
     </div>

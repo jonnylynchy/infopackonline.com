@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InfopackonlineCom</title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+  <![endif]-->
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header" class="container">
+  <div class="row">
+    <div class="twelve columns">
+      <div class="logo">
+        <p>Info Pack Online!</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main" class="container">
+  <div class="row">
+    <div class="twelve columns">
+      <div class="wrapper">
+        <div class="inner">
+          <div class="page clearFix">
+            <div class="pageContent">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

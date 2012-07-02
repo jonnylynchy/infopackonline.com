@@ -1,4 +1,6 @@
 InfopackonlineCom::Application.routes.draw do
+  get "voice/three_way_audio"
+
   get "admin/index"
   match "admin", to: 'admin#index'
   root to: 'main#signin'

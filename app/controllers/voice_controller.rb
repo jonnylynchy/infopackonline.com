@@ -1,0 +1,6 @@
+class VoiceController < ApplicationController
+  def three_way_audio
+    @audio_url = "http://s3.amazonaws.com/eteam-s3/VisalusSpotTWO.mp3"
+    render action: 'three_way_audio.xml.builder', layout: false
+  end
+end

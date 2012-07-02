@@ -5,10 +5,10 @@ class MainController < ApplicationController
 
   def login
     # if valid email, show video
-    if /^.+@.+$/.match(params[:email])
+    if /^.+@.+$/.match(params[:email].strip.downcase)
       @user = SiteUser.find_by_email(params[:email])
       if @user.nil?
-        @user = SiteUser.new({:email => params[:email], :ipaddress => request.remote_ip})
+        @user = SiteUser.new({:email => params[:email].strip.downcase, :ipaddress => request.remote_ip})
         @user.save
       end
       redirect_to video_path

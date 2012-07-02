@@ -1,6 +1,10 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#player_api{
+  height:480px !important;
+}
+
 body{
 
   background: #14022c url(asset-path('bg-body.jpg', image)) no-repeat center 0;
@@ -31,6 +35,10 @@ body{
         background: rgba(0, 0, 0, 0.2);
         border-radius: 6px;
         padding: 5px;
+        
+        .vidCentered{
+          margin:auto;
+        }
 
         .page{
           padding:10px;
@@ -43,6 +51,11 @@ body{
           .alert{
             margin-top:7px;
           }
+
+          #player{
+            
+          }
+
         }
   
       }

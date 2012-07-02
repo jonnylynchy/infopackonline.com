@@ -1,23 +1,27 @@
-<div class="row">
-  <div class="five columns centered">
-    <p></p>
-    <label>Please sign in with your email</label>
-    <div class="row collapse">
-      <% if !flash[:notice].nil? %>
-        <div class="alert-box alert">
-          <%= flash[:notice] %>
-          <a href="" class="close">&times;</a>
+<div class="page clearFix">
+  <div class="pageContent">
+    <div class="row">
+      <div class="five columns centered">
+        <p></p>
+        <label>Please sign in with your email</label>
+        <div class="row collapse">
+          <% if !flash[:notice].nil? %>
+            <div class="alert-box alert">
+              <%= flash[:notice] %>
+              <a href="" class="close">&times;</a>
+            </div>
+          <% end %>
+          <%= form_tag("/login", {:method => "post", :class => "loginForm"}) do %>
+          <div class="eight mobile-three columns">
+            <%= text_field_tag(:email) %>
+          </div>
+          <div class="four mobile-one columns">
+            <%= link_to 'Sign In', "#", {:class => "postfix button", :onclick=>"$('.loginForm').submit()"}  %>
+          </div>
+          <% end %>
         </div>
-      <% end %>
-      <%= form_tag("/login", {:method => "post", :class => "loginForm"}) do %>
-      <div class="eight mobile-three columns">
-        <%= text_field_tag(:email) %>
+        <p></p>
       </div>
-      <div class="four mobile-one columns">
-        <%= link_to 'Sign In', "#", {:class => "postfix button", :onclick=>"$('.loginForm').submit()"}  %>
-      </div>
-      <% end %>
     </div>
-    <p></p>
   </div>
 </div>

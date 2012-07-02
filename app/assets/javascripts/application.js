@@ -18,4 +18,5 @@
 //= require jquery.reveal
 //= require jquery.tooltips
 //= require modernizr.foundation
+//= require flowplayer-3.2.11.min
 //= require_tree .

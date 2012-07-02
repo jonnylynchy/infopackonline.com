@@ -1,2 +1,17 @@
-<h1>Main#video</h1>
-<p>Find me in app/views/main/video.html.erb</p>
+<!-- <div id="player" class="show-for-medium vidCentered" style="display:block;"></div> -->
+
+<a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:840px;height:480px" id="player" class="vidCentered hide-for-small">
+  <%= image_tag "playerFallback.jpg" %>
+</a>
+<script>
+  flowplayer("player", '<%= asset_path("flowplayer-3.2.12.swf") %>', {
+      clip:  {
+          url: "http://eteam-s3.s3.amazonaws.com/Pack1.mp4",
+          autoPlay: false,
+          autoBuffering: true
+      }
+  });
+</script>
+<a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:320px;height:240px" id="player" class="vidCentered show-for-small">
+  <%= image_tag "playerFallback.jpg", :size => "320x240" %>
+</a>

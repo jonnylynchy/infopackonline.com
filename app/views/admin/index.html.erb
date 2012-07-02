@@ -1,14 +1,16 @@
+<div class="page">
 <table style="width:100%;">
   <tr>
-    <td><strong>Email</strong></td>
-    <td><strong>IP Address</strong></td>
-    <td><strong>Visited On</strong></td>
+    <td style="border-bottom:1px solid #ccc;"><strong>Email</strong></td>
+    <td style="border-bottom:1px solid #ccc;"><strong>IP Address</strong></td>
+    <td style="border-bottom:1px solid #ccc;"><strong>Visited On</strong></td>
   </tr>
   <% @siteusers.each do |i| %>
   <tr>
     <td><%= i.email %></td>
     <td><%= i.ipaddress %></td>
-    <td><%= i.created_at %></td>
+    <td><%= i.created_at.strftime("%m/%d/%Y") %> <%= i.created_at.in_time_zone('Central Time (US & Canada)').strftime("at %I:%M%p CST") %></td>
   </tr>
   <% end %>
 </table>
+</div>

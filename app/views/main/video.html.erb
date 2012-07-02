@@ -1,23 +1,43 @@
-<!-- <div id="player" class="show-for-medium vidCentered" style="display:block;"></div> -->
+<div id="main" class="container">
+  <div class="row hide-for-small">
+    <div class="wrapper">
+      <div class="inner">
+        <a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:840px;height:480px" id="largePlayer" class="vidCentered show-for-xlarge">
+          <%= image_tag "playerFallback.jpg" %>
+        </a>
+        <a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:840px;height:480px" id="mediumPlayer" class="vidCentered show-for-large">
+          <%= image_tag "playerFallback.jpg" %>
+        </a>
+        <a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:640px;height:320px" id="smallPlayer" class="vidCentered show-for-medium">
+          <%= image_tag "playerFallback.jpg", :size => "640x320" %>
+        </a>
+        <script>
+          $(function(){
+            
+            vidID = $('.vidCentered:visible').attr('id');
 
-<a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:840px;height:480px" id="player" class="vidCentered show-for-xlarge">
-  <%= image_tag "playerFallback.jpg" %>
-</a>
-<a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:840px;height:480px" id="player" class="vidCentered show-for-large">
-  <%= image_tag "playerFallback.jpg" %>
-</a>
-<a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:640px;height:320" id="player" class="vidCentered show-for-medium">
-  <%= image_tag "playerFallback.jpg", :size => "640x320" %>
-</a>
-<script>
-  flowplayer("player", '<%= asset_path("flowplayer-3.2.12.swf") %>', {
-      clip:  {
-          url: "http://eteam-s3.s3.amazonaws.com/Pack1.mp4",
-          autoPlay: false,
-          autoBuffering: true
-      }
-  });
-</script>
-<a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:240px;height:200px" id="player" class="vidCentered show-for-small">
-  <%= image_tag "playerFallback.jpg", :size => "240x200" %>
-</a>
+            flowplayer(vidID, '<%= asset_path("flowplayer-3.2.12.swf") %>', {
+              clip:  {
+                  onStart: function(clip) {
+                    w = $('#'+vidID).css('width');
+                    h = $('#'+vidID).css('height');
+                    var wrap = $(this.getParent());
+                    wrap.animate({width: w, height: h}, 2000);
+                  },
+                  url: "http://eteam-s3.s3.amazonaws.com/Pack1.mp4",
+                  autoPlay: false,
+                  autoBuffering: true
+              }
+            });
+
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  <div class="row show-for-small">
+    <a href="http://eteam-s3.s3.amazonaws.com/Pack1.mp4" style="display:block;width:240px;height:200px" id="tinyPlayer" class="vidCentered">
+      <%= image_tag "playerFallback.jpg", :size => "240x200" %>
+    </a>
+  </div>
+</div>

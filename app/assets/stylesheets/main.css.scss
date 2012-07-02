@@ -35,10 +35,6 @@ body{
         background: rgba(0, 0, 0, 0.2);
         border-radius: 6px;
         padding: 5px;
-        
-        .vidCentered{
-          margin:auto;
-        }
 
         .page{
           padding:10px;
@@ -52,13 +48,42 @@ body{
             margin-top:7px;
           }
 
-          #player{
-            
+          #largePlayer{
+            embed, object{
+              width: 840px !important;
+              height: 480px !important;
+            }
+          }
+          
+          #mediumPlayer{
+            embed, object{
+              width: 840px !important;
+              height: 480px !important;
+            }
+          }
+
+          #smallPlayer{
+            embed, object{
+              width: 640px !important;
+              height: 320px !important;
+            }
           }
 
         }
-  
       }
     }
   }
+  
+  .show-for-small{
+    background:#fff;
+  }
+
+  .vidCentered{
+    margin:auto;
+  }
+
+  .page{
+    padding:10px;
+  }
+
 }

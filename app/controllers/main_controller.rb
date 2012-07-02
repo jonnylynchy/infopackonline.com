@@ -9,7 +9,7 @@ class MainController < ApplicationController
       redirect_to :back
     else
       @user = SiteUser.find_by_email(params[:email])
-      if !@user.nil?
+      if @user.nil?
         @user = SiteUser.new({:email => params[:email], :ipaddress => request.remote_ip})
         @user.save
       end

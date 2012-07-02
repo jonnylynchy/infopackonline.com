@@ -1,0 +1,14 @@
+<table style="width:100%;">
+  <tr>
+    <td><strong>Email</strong></td>
+    <td><strong>IP Address</strong></td>
+    <td><strong>Visited On</strong></td>
+  </tr>
+  <% @siteusers.each do |i| %>
+  <tr>
+    <td><%= i.email %></td>
+    <td><%= i.ipaddress %></td>
+    <td><%= i.created_at %></td>
+  </tr>
+  <% end %>
+</table>
